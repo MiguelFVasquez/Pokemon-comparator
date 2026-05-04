@@ -1,0 +1,218 @@
+.appContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  color: #3b4cca;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.searchSection {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 4px solid #3b4cca;
+}
+
+.comparisonSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.slotsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+}
+
+.slot {
+  background: white;
+  border: 4px solid #ccc;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hasPokemon {
+  border-color: #3b4cca;
+  background: linear-gradient(to bottom, #ffffff, #f0f4ff);
+}
+
+.slotHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.slotHeader h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #3b4cca;
+}
+
+.removeButton {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background: #ff0000;
+  color: white;
+  border: 2px solid #3b4cca;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s;
+}
+
+.removeButton:hover {
+  transform: scale(1.1);
+}
+
+.emptySlot {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+
+.pokeball {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(to bottom, #ff0000 50%, #ffffff 50%);
+  border: 3px solid #333;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 15px;
+  opacity: 0.3;
+}
+
+.pokeball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background: white;
+  border: 3px solid #333;
+  border-radius: 50%;
+}
+
+.selectedPokemon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.artwork {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+}
+
+.pokemonName {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2rem;
+  margin-top: 20px;
+  color: #3b4cca;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.placeholderChart {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 4px solid #3b4cca;
+  color: #3b4cca;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.5rem;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(59, 76, 202, 0.2);
+}
+
+.vsBadge {
+  position: absolute;
+  top: -25px;
+  background: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 4px solid #3b4cca;
+  font-size: 1.5rem;
+  transform: rotate(-5deg);
+}
+
+.instructionCard {
+  background: #ffde00;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 3px solid #3b4cca;
+  color: #3b4cca;
+  font-weight: bold;
+}
+
+@media (max-width: 850px) {
+  .slotsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+}

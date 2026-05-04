@@ -1,122 +1,96 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { usePokemon } from './context/PokemonContext';
+import SearchFeature from './features/search/SearchFeature';
+import styles from './App.module.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { pokemonSlot1, pokemonSlot2, setPokemonSlot1, setPokemonSlot2 } = usePokemon();
+
+  const clearSlot1 = () => setPokemonSlot1(null);
+  const clearSlot2 = () => setPokemonSlot2(null);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className={styles.appContainer}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Comparador Pokémon</h1>
+        <p className={styles.subtitle}>Selecciona dos Pokémon para comparar sus estadísticas</p>
+      </header>
 
-      <div className="ticks"></div>
+      <main className={styles.main}>
+        <section className={styles.searchSection}>
+          <SearchFeature />
+        </section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section className={styles.comparisonSection}>
+          <div className={styles.slotsGrid}>
+            <div className={`${styles.slot} ${pokemonSlot1 ? styles.hasPokemon : ''}`}>
+              <div className={styles.slotHeader}>
+                <h2>Slot 1</h2>
+                {pokemonSlot1 && (
+                  <button onClick={clearSlot1} className={styles.removeButton} title="Eliminar">
+                    ×
+                  </button>
+                )}
+              </div>
+              
+              {pokemonSlot1 ? (
+                <div className={styles.selectedPokemon}>
+                  <img 
+                    src={pokemonSlot1.sprites.other['official-artwork'].front_default} 
+                    alt={pokemonSlot1.name} 
+                    className={styles.artwork}
+                  />
+                  <p className={styles.pokemonName}>{pokemonSlot1.name}</p>
+                </div>
+              ) : (
+                <div className={styles.emptySlot}>
+                  <div className={styles.pokeball}></div>
+                  <p>Esperando Pokémon...</p>
+                </div>
+              )}
+            </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            <div className={`${styles.slot} ${pokemonSlot2 ? styles.hasPokemon : ''}`}>
+              <div className={styles.slotHeader}>
+                <h2>Slot 2</h2>
+                {pokemonSlot2 && (
+                  <button onClick={clearSlot2} className={styles.removeButton} title="Eliminar">
+                    ×
+                  </button>
+                )}
+              </div>
+
+              {pokemonSlot2 ? (
+                <div className={styles.selectedPokemon}>
+                  <img 
+                    src={pokemonSlot2.sprites.other['official-artwork'].front_default} 
+                    alt={pokemonSlot2.name} 
+                    className={styles.artwork}
+                  />
+                  <p className={styles.pokemonName}>{pokemonSlot2.name}</p>
+                </div>
+              ) : (
+                <div className={styles.emptySlot}>
+                  <div className={styles.pokeball}></div>
+                  <p>Esperando Pokémon...</p>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {pokemonSlot1 && pokemonSlot2 ? (
+            <div className={styles.placeholderChart}>
+              <p>Aquí irá el gráfico de comparación</p>
+              <div className={styles.vsBadge}>VS</div>
+            </div>
+          ) : (
+            <div className={styles.instructionCard}>
+              <p>Selecciona otro Pokémon para comparar estadísticas</p>
+            </div>
+          )}
+        </section>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

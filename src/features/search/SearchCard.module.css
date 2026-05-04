@@ -1,0 +1,106 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 0px rgba(59, 76, 202, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  margin: 20px auto;
+  border: 3px solid #3b4cca;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  background: #f8f9fa;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #3b4cca;
+  margin-bottom: 10px;
+}
+
+.image {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  image-rendering: pixelated; /* Para los sprites de pixel */
+}
+
+.name {
+  margin: 10px 0;
+  color: #3b4cca;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.types {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.type {
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+/* Tipos de Pokémon */
+.grass { background-color: #78C850; }
+.fire { background-color: #F08030; }
+.water { background-color: #6890F0; }
+.bug { background-color: #A8B820; }
+.normal { background-color: #A8A878; }
+.poison { background-color: #A040A0; }
+.electric { background-color: #F8D030; }
+.ground { background-color: #E0C068; }
+.fairy { background-color: #EE99AC; }
+.fighting { background-color: #C03028; }
+.psychic { background-color: #F85888; }
+.rock { background-color: #B8A038; }
+.ghost { background-color: #705898; }
+.ice { background-color: #98D8D8; }
+.dragon { background-color: #7038F8; }
+.dark { background-color: #705848; }
+.steel { background-color: #B8B8D0; }
+.flying { background-color: #A890F0; }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.slotButton {
+  flex: 1;
+  padding: 10px;
+  background-color: #ffde00;
+  color: #3b4cca;
+  border: 2px solid #3b4cca;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+.slotButton:hover {
+  background-color: #3b4cca;
+  color: white;
+}

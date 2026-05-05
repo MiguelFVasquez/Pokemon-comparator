@@ -11,9 +11,13 @@ const SearchFeature = () => {
     setSearchTerm(term);
   };
 
+  const handleClearSearch = () => {
+    setSearchTerm('');
+  };
+
   return (
     <section>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} externalValue={searchTerm} />
       
       {isLoading && <p style={{ textAlign: 'center' }}>Cargando Pokémon...</p>}
       
@@ -25,8 +29,8 @@ const SearchFeature = () => {
         </p>
       )}
 
-      {pokemon && !isLoading && !isError && (
-        <SearchCard pokemon={pokemon} />
+      {pokemon && !isLoading && !isError && searchTerm !== '' && (
+        <SearchCard pokemon={pokemon} onSelect={handleClearSearch} />
       )}
     </section>
   );

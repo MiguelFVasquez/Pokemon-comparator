@@ -1,18 +1,26 @@
-import  { useState,  useEffect, useRef, type KeyboardEvent, type FormEvent } from 'react';
+import { useState, useEffect, useRef, type FormEvent, type KeyboardEvent } from 'react';
 import styles from './SearchBar.module.css';
 import { usePokemonAutocomplete } from '../../hooks/usePokemonAutocomplete';
 
 interface SearchBarProps {
   onSearch: (term: string) => void;
+  externalValue?: string;
 }
 
-const SearchBar = ({ onSearch }: SearchBarProps) => {
+const SearchBar = ({ onSearch, externalValue }: SearchBarProps) => {
   const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const { data: allPokemon } = usePokemonAutocomplete();
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Sincronizar el input si se limpia externamente
+  useEffect(() => {
+    if (externalValue === '') {
+      setInputValue('');
+    }
+  }, [externalValue]);
 
   useEffect(() => {
     if (inputValue.length >= 2 && allPokemon) {
@@ -26,7 +34,6 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     } else {
       setSuggestions([]);
       setShowSuggestions(false);
-      // Si el input está vacío, notificamos para limpiar el preview
       if (inputValue === '') {
         onSearch('');
       }
@@ -82,7 +89,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
         <input
           type="text"
           className={styles.searchInput}
-          placeholder="Busca por nombre"
+          placeholder="Busca por nombre o ID..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onFocus={() => inputValue.length >= 2 && setShowSuggestions(true)}

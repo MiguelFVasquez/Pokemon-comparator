@@ -1,0 +1,106 @@
+.container {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.title {
+  font-family: 'Luckiest Guy', cursive;
+  color: #3b4cca;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.abilityItem {
+  position: relative;
+  cursor: help;
+}
+
+.abilityBadge {
+  padding: 4px 10px;
+  background-color: #eee;
+  border: 2px solid #3b4cca;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #3b4cca;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.hidden {
+  border-style: dashed;
+  background-color: #f9f9f9;
+  color: #666;
+}
+
+.hiddenLabel {
+  font-size: 0.7rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.abilityItem:hover .abilityBadge {
+  background-color: #ffde00;
+  transform: translateY(-2px);
+}
+
+/* Tooltip */
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  background-color: white;
+  color: #333;
+  text-align: left;
+  padding: 12px;
+  border-radius: 12px;
+  border: 3px solid #3b4cca;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #3b4cca transparent transparent transparent;
+}
+
+.abilityItem:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipTitle {
+  margin: 0 0 5px 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: #3b4cca;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.tooltipText {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}

@@ -1,6 +1,7 @@
 import { usePokemon } from './context/PokemonContext';
 import SearchFeature from './features/search/SearchFeature';
 import StatsChart from './features/comparison/StatsChart';
+import AbilitiesList from './features/comparison/AbilitiesList';
 import styles from './App.module.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <div className={styles.appContainer}>
       <header className={styles.header}>
         <h1 className={styles.title}>Comparador Pokémon</h1>
-        <p className={styles.subtitle}>Selecciona dos Pokémon para comparar sus estadísticas</p>
+        <p className={styles.subtitle}>Selecciona dos Pokémon para comparar sus estadísticas y habilidades</p>
       </header>
 
       <main className={styles.main}>
@@ -38,6 +39,9 @@ function App() {
                   className={styles.artwork}
                 />
                 <p className={styles.pokemonName}>{pokemonSlot1.name}</p>
+                
+                {/* Lista de Habilidades con Tooltips */}
+                <AbilitiesList abilities={pokemonSlot1.abilities} />
               </div>
             ) : (
               <div className={styles.emptySlot}>
@@ -77,6 +81,9 @@ function App() {
                   className={styles.artwork}
                 />
                 <p className={styles.pokemonName}>{pokemonSlot2.name}</p>
+                
+                {/* Lista de Habilidades con Tooltips */}
+                <AbilitiesList abilities={pokemonSlot2.abilities} />
               </div>
             ) : (
               <div className={styles.emptySlot}>

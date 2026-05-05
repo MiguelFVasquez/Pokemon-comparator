@@ -18,7 +18,22 @@ export const getPokemonListAll = async () => {
 };
 
 /**
- * Ejemplo por si necesitas una lista inicial (Opcional por ahora)
+ * Obtiene la descripción de una habilidad en español (o inglés si no hay español)
+ */
+export const getAbilityDescription = async (url: string): Promise<string> => {
+  const { data } = await pokemonApi.get(url);
+  
+  // Las descripciones están en effect_entries
+  const effectEntries = (data as any).effect_entries || [];
+  
+  const spanishEntry = effectEntries.find((entry: any) => entry.language.name === 'es');
+  const englishEntry = effectEntries.find((entry: any) => entry.language.name === 'en');
+  
+  return spanishEntry ? spanishEntry.short_effect : (englishEntry ? englishEntry.short_effect : 'No hay descripción disponible.');
+};
+
+/**
+ * Obtiene una lista paginada de Pokémon
  */
 export const getPokemonList = async (limit = 20, offset = 0) => {
   const { data } = await pokemonApi.get(`/pokemon?limit=${limit}&offset=${offset}`);

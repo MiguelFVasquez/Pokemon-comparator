@@ -1,0 +1,27 @@
+.chartWrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  border: 4px solid #3b4cca;
+  box-shadow: 0 15px 35px rgba(59, 76, 202, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden; /* Evita que el canvas se salga */
+}
+
+@media (max-width: 1024px) {
+  .chartWrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chartWrapper {
+    height: 300px;
+  }
+}

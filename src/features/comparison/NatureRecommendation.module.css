@@ -1,0 +1,78 @@
+.natureContainer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  border: 1px dashed #ccc;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1rem;
+  color: #3b4cca;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.natureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.natureCard {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.natureHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.natureName {
+  font-weight: bold;
+  color: #ffde00;
+  text-shadow: 1px 1px #3b4cca;
+  font-size: 0.9rem;
+}
+
+.statChanges {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.increase {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.decrease {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.mintInfo {
+  font-size: 0.7rem;
+  color: #666;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.mintIcon {
+  width: 14px;
+  height: 14px;
+  background: #2ecc71;
+  border-radius: 50%;
+  display: inline-block;
+}

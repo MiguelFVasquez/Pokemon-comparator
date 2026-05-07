@@ -2,6 +2,7 @@ import { usePokemon } from './context/PokemonContext';
 import SearchFeature from './features/search/SearchFeature';
 import StatsChart from './features/comparison/StatsChart';
 import AbilitiesList from './features/comparison/AbilitiesList';
+import NatureRecommendation from './features/comparison/NatureRecommendation';
 import styles from './App.module.css';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
                 
                 {/* Lista de Habilidades con Tooltips */}
                 <AbilitiesList abilities={pokemonSlot1.abilities} />
+
+                {/* Recomendación de Naturalezas */}
+                <NatureRecommendation pokemon={pokemonSlot1} />
               </div>
             ) : (
               <div className={styles.emptySlot}>
@@ -84,6 +88,9 @@ function App() {
                 
                 {/* Lista de Habilidades con Tooltips */}
                 <AbilitiesList abilities={pokemonSlot2.abilities} />
+
+                {/* Recomendación de Naturalezas */}
+                <NatureRecommendation pokemon={pokemonSlot2} />
               </div>
             ) : (
               <div className={styles.emptySlot}>

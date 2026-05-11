@@ -3,6 +3,7 @@ import SearchFeature from './features/search/SearchFeature';
 import StatsChart from './features/comparison/StatsChart';
 import AbilitiesList from './features/comparison/AbilitiesList';
 import NatureRecommendation from './features/comparison/NatureRecommendation';
+import Footer from './components/Footer/Footer';
 import styles from './App.module.css';
 
 function App() {
@@ -14,8 +15,12 @@ function App() {
   return (
     <div className={styles.appContainer}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Comparador Pokémon</h1>
-        <p className={styles.subtitle}>Selecciona dos Pokémon para comparar sus estadísticas y habilidades</p>
+        <div className={styles.headerContent}>
+          <div className={styles.titleGroup}>
+            <h1 className={styles.title}>Comparador Pokémon</h1>
+            <p className={styles.subtitle}>Analiza y compara estadísticas de tus Pokémon</p>
+          </div>
+        </div>
       </header>
 
       <main className={styles.main}>
@@ -101,6 +106,8 @@ function App() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

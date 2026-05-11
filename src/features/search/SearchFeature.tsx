@@ -24,7 +24,7 @@ const SearchFeature = () => {
       {isError && (
         <p style={{ textAlign: 'center', color: 'red' }}>
           {(error as any)?.response?.status === 404 
-            ? 'Pokémon no encontrado. Intenta con otro nombre o ID.' 
+            ? 'Pokémon no encontrado. Intenta con otro nombre.' 
             : 'Ocurrió un error al buscar el Pokémon.'}
         </p>
       )}

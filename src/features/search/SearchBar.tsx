@@ -89,7 +89,7 @@ const SearchBar = ({ onSearch, externalValue }: SearchBarProps) => {
         <input
           type="text"
           className={styles.searchInput}
-          placeholder="Busca por nombre o ID..."
+          placeholder="Busca por nombre..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onFocus={() => inputValue.length >= 2 && setShowSuggestions(true)}

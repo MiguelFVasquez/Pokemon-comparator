@@ -1,0 +1,42 @@
+.footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background-color: var(--pokemon-blue, #3b4cca);
+  color: white;
+  border-top: 5px solid var(--accent, #ffde00);
+  margin-top: 3rem;
+}
+
+.footerContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footerContent a {
+  color: var(--accent, #ffde00);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footerContent a:hover {
+  text-decoration: underline;
+}
+
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  fill: currentColor;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  margin-top: 0.8rem;
+  opacity: 0.8;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.4;
+}
